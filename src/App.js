@@ -3,6 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 
 import TopHeader from './TopHeader';
+import VideoGameUsers from './VideoGameUsers';
 
 
 
@@ -24,9 +25,13 @@ class App extends Component {
           title={'ReactND - Coding Practice'}
         />
 
+        <VideoGameUsers />
+
       </div>
     );
   }
 }
+
+
 
 export default App;
