@@ -8,7 +8,9 @@ class AddUser extends Component {
         firstname: '',
         lastname: '',
         username: '',
-        numberGames: 0
+        numberGames: 0,
+
+        isDuplicate: false
     };
 
 
@@ -24,52 +26,70 @@ class AddUser extends Component {
             firstname: '',
             lastname: '',
             username: '',
-            numberGames: 0
+            numberGames: 0,
+
+            isDuplicate: false
         });
     };
 
 
     handleAddUser = event => {
-        
+
+        const user = this.state;
+
+        // check to see if username exists
+        const userExists = this.props.isDuplicate(user.username);
+        this.setState({ isDuplicate: userExists });
+
+        // ensure username doesn't exist before adding user
+        if (!userExists) {
+            this.props.addUser(user);
+            this.clearForm();
+        }
+
         // to prevent browser reload/refresh when submitting
         event.preventDefault();
-        
-        this.props.addUser(this.state);
-        this.clearForm();
     };
 
 
     render() {
         return (
-            <form onSubmit={this.handleAddUser}>
-                <input
-                    id="firstname"
-                    type="text"
-                    placeholder="Enter First Name"
-                    value={this.state.firstname}
-                    onChange={this.handleChange}
-                />
+            <React.Fragment>
+                <h3>Add User</h3>
 
-                <input
-                    id="lastname"
-                    type="text"
-                    placeholder="Enter Last Name"
-                    value={this.state.lastname}
-                    onChange={this.handleChange}
-                />
+                {
+                    this.state.isDuplicate && <div style={{color: "red"}}>Username already exists. Please change it!</div>
+                }
 
-                <input
-                    id="username"
-                    type="text"
-                    placeholder="Enter Username"
-                    value={this.state.username}
-                    onChange={this.handleChange}
-                />
+                <form onSubmit={this.handleAddUser}>
+                    <input
+                        id="firstname"
+                        type="text"
+                        placeholder="Enter First Name"
+                        value={this.state.firstname}
+                        onChange={this.handleChange}
+                    />
 
-                <button>Add</button>
+                    <input
+                        id="lastname"
+                        type="text"
+                        placeholder="Enter Last Name"
+                        value={this.state.lastname}
+                        onChange={this.handleChange}
+                    />
 
+                    <input
+                        id="username"
+                        type="text"
+                        placeholder="Enter Username"
+                        value={this.state.username}
+                        onChange={this.handleChange}
+                    />
 
-            </form>
+                    <button>Add</button>
+
+                </form>
+            </React.Fragment>
         );
     }
 }

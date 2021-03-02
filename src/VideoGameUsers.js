@@ -34,7 +34,7 @@ class VideoGameUsers extends Component {
 
     addUser = user => {
         this.setState(prevState => ({
-            
+
             // add new user, as well as maintain previous list via spread operator
             // this assumes all users attributes (first, last, username etc to be present)
             users: [...prevState.users, user]
@@ -42,16 +42,23 @@ class VideoGameUsers extends Component {
     };
 
 
+    isDuplicate = username => {
+
+        // `Array.some` checks to see if at least one element satisfies the test
+        return this.state.users.some(user => user.username === username);
+    };
+
+
     render() {
         return (
             <React.Fragment>
-                <h3>Add User</h3>
 
-                <AddUser 
+                <AddUser
                     addUser={this.addUser}
+                    isDuplicate={this.isDuplicate}
                 />
 
-                <ListUsers 
+                <ListUsers
                     users={this.state.users}
                 />
 
