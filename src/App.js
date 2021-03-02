@@ -22,7 +22,7 @@ class App extends Component {
 
         <TopHeader
           logo={logo}
-          title={'ReactND - Coding Practice'}
+          title={'Video Game Users'}
         />
 
         <VideoGameUsers />
