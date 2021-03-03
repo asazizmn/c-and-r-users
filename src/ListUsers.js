@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 
-import ToggleShowHide from './ToggleShowHide';
-
 
 
 class ListUsers extends Component {
