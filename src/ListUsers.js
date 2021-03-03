@@ -6,6 +6,16 @@ import ToggleShowHide from './ToggleShowHide';
 
 class ListUsers extends Component {
 
+    state = {
+        isShowing: false
+    };
+
+
+    toggleShowHide = () => {
+        this.setState({ isShowing: !this.state.isShowing });
+    };
+
+
     render() {
         return (
             <React.Fragment>
@@ -16,7 +26,7 @@ class ListUsers extends Component {
                     {
                         // display list of users
                         this.props.users.map((item, index) => (
-                            <li key={index}>{item.username} played {item.numberGames} games</li>
+                            <li key={index}>{item.username} played {this.state.isShowing ? "\\*" : item.numberGames} games</li>
                         ))
                     }
                 </ol>
@@ -28,10 +38,13 @@ class ListUsers extends Component {
                     }
                 </div>
 
-                <ToggleShowHide 
-                    numberUsers={this.props.users.length}
-                />
-
+                {
+                    // display error in case of empty list
+                    this.props.users.length !== 0 &&
+                    <button onClick={this.toggleShowHide}>
+                        {this.state.isShowing ? "Show" : "Hide"} the Number of Games Played
+                    </button>
+                }
 
             </React.Fragment>
         )
