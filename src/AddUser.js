@@ -81,13 +81,17 @@ class AddUser extends Component {
     };
 
 
+
     render() {
         return (
             <React.Fragment>
                 <h3>Add User</h3>
 
                 {
-                    this.state.isDuplicate && <div style={{ color: "red" }}>Username already exists. Please change it!</div>
+                    this.state.isDuplicate &&
+                    <div style={{ color: "red" }}>
+                        Username already exists. Please change it!
+                    </div>
                 }
 
                 <form onSubmit={this.handleAddUser}>
