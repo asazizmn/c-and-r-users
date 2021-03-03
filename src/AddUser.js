@@ -50,28 +50,32 @@ class AddUser extends Component {
     };
 
 
-    isDuplicate = username => {
+    isUserValid = () => {
 
         // check if username is a duplicate
-        const userExists = this.props.isDuplicate(username);
+        const userExists = this.props.isDuplicate(this.state.user.username);
 
         // set duplicate property in state
         this.setState({ isDuplicate: userExists });
 
         return userExists;
-    }
+    };
+
+
+    isMissingInfo = () => {
+        const user = this.state.user;
+        return !user.firstname || !user.lastname || !user.username;
+    };
 
 
     handleAddUser = event => {
 
-        const user = this.state.user;
-        
-        // check to see if username exists
-        if (!this.isDuplicate(user.username)) {
-            this.props.addUser(user);
+        // ensure username is not a duplicate
+        if (!this.isUserValid()) {
+            this.props.addUser(this.state.user);
             this.clearForm();
         }
-        
+
         // to prevent browser reload/refresh when submitting
         event.preventDefault();
     };
@@ -111,7 +115,7 @@ class AddUser extends Component {
                         onChange={this.handleChange}
                     />
 
-                    <button>Add</button>
+                    <button disabled={this.isMissingInfo()}>Add</button>
 
                 </form>
             </React.Fragment>
