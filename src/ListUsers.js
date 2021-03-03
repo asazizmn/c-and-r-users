@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
 
+import ToggleShowHide from './ToggleShowHide';
+
 
 
 class ListUsers extends Component {
+
     render() {
         return (
             <React.Fragment>
@@ -25,17 +28,12 @@ class ListUsers extends Component {
                     }
                 </div>
 
-                {
-                    // display error in case of empty list
-                    this.props.users.length !== 0 &&
-                    <button>
-                        Hide the Number of Games Played
-            </button>
-                }
+                <ToggleShowHide 
+                    numberUsers={this.props.users.length}
+                />
 
 
             </React.Fragment>
-            // );
         )
     }
 }
