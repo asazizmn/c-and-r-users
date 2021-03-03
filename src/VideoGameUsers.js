@@ -9,26 +9,7 @@ class VideoGameUsers extends Component {
 
     // each user should have 'firstname, lastname, username, numberGames'
     state = {
-        users: [
-            // {
-            //     firstname: 'fname1',
-            //     lastname: 'lname1',
-            //     username: 'uname1', 
-            //     numberGames: 1,
-            // }, 
-            // {
-            //     firstname: 'fname2',
-            //     lastname: 'lname2',
-            //     username: 'uname2', 
-            //     numberGames: 2,
-            // }, 
-            // {
-            //     firstname: 'fname3',
-            //     lastname: 'lname3',
-            //     username: 'uname3', 
-            //     numberGames: 3,
-            // }
-        ]
+        users: []
     }
 
 

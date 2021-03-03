@@ -4,16 +4,20 @@ import React, { Component } from 'react';
 
 const ListUsers = props => (
     <React.Fragment>
+
+        {/* title */}
         <h3>List of users</h3>
 
+        {/* display list of users */}
         <ol>
             {
                 props.users.map((item, index) => (
-                    <li>{item.username} played {item.numberGames} games</li>
+                    <li key={index}>{item.username} played {item.numberGames} games</li>
                 ))
             }
         </ol>
 
+        {/* display error in case of empty list */}
         {
             props.users.length === 0 &&
 
