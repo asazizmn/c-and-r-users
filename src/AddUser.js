@@ -125,7 +125,7 @@ class AddUser extends Component {
                         onChange={this.handleChange}
                     />
 
-                    <button disabled={this.isMissingInfo()}>Add</button>
+                    <button className="smallButton" disabled={this.isMissingInfo()}>Add</button>
 
                 </form>
             </React.Fragment>

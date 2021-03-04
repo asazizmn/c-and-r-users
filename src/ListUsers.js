@@ -50,7 +50,7 @@ class ListUsers extends Component {
                 {
                     // display error in case of empty list
                     users.length !== 0 &&
-                    <button onClick={this.toggleShowHide}>
+                    <button className="smallButton" onClick={this.toggleShowHide}>
                         {isShowing ? "Hide": "Show"} the Number of Games Played
                     </button>
                 }
