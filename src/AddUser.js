@@ -28,8 +28,10 @@ class AddUser extends Component {
         // alternatively `event.persist()` prevents React from resetting its properties
         // https://reactjs.org/docs/legacy-event-pooling.html
         //
-        const key = event.target.id;
-        const value = event.target.value;
+        // the following can be achieved with destructuring:
+        // const key = event.target.id;
+        // const value = event.target.value;
+        const {key, value} = event.target;
 
         // '[event.target.id]' allows for dynamic keys to be used
         // this.setState({ [event.target.id]: event.target.value });
