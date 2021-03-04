@@ -29,12 +29,12 @@ class AddUser extends Component {
         // https://reactjs.org/docs/legacy-event-pooling.html
         //
         // the following can be achieved with destructuring:
-        // const key = event.target.id;
+        // const name = event.target.name;
         // const value = event.target.value;
         const {name, value} = event.target;
 
-        // '[event.target.id]' allows for dynamic keys to be used
-        // this.setState({ [event.target.id]: event.target.value });
+        // '[event.target.name]' allows for dynamic keys to be used
+        // this.setState({ [event.target.name]: event.target.value });
 
         // to set a particular state object property,
         // ... the entire object needs to be re-created
