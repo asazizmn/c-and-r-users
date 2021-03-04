@@ -31,7 +31,7 @@ class AddUser extends Component {
         // the following can be achieved with destructuring:
         // const name = event.target.name;
         // const value = event.target.value;
-        const {name, value} = event.target;
+        const { name, value } = event.target;
 
         // '[event.target.name]' allows for dynamic keys to be used
         // this.setState({ [event.target.name]: event.target.value });
@@ -74,7 +74,7 @@ class AddUser extends Component {
 
         // to prevent browser reload/refresh when submitting
         event.preventDefault();
-        
+
         // ensure username is not a duplicate
         if (!this.isUserValid()) {
             this.props.addUser(this.state.user);
@@ -85,6 +85,10 @@ class AddUser extends Component {
 
 
     render() {
+
+        // destructuring to allow for easy access within input fields
+        const { firstname, lastname, username } = this.state.user;
+
         return (
             <React.Fragment>
                 <h3>Add User</h3>
@@ -101,7 +105,7 @@ class AddUser extends Component {
                         name="firstname"
                         type="text"
                         placeholder="Enter First Name"
-                        value={this.state.user.firstname}
+                        value={firstname}
                         onChange={this.handleChange}
                     />
 
@@ -109,7 +113,7 @@ class AddUser extends Component {
                         name="lastname"
                         type="text"
                         placeholder="Enter Last Name"
-                        value={this.state.user.lastname}
+                        value={lastname}
                         onChange={this.handleChange}
                     />
 
@@ -117,7 +121,7 @@ class AddUser extends Component {
                         name="username"
                         type="text"
                         placeholder="Enter Username"
-                        value={this.state.user.username}
+                        value={username}
                         onChange={this.handleChange}
                     />
 
