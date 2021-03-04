@@ -22,6 +22,9 @@ class ListUsers extends Component {
 
 
     render() {
+
+        const {isShowing} = this.state;
+
         return (
             <React.Fragment>
 
@@ -31,7 +34,7 @@ class ListUsers extends Component {
                     {
                         // display list of users
                         this.props.users.map((item, index) => (
-                            <li key={index}>{item.username} played {this.state.isShowing ? item.numberGames : "\\*" } games</li>
+                            <li key={index}>{item.username} played {isShowing ? item.numberGames : "\\*" } games</li>
                         ))
                     }
                 </ol>
@@ -47,7 +50,7 @@ class ListUsers extends Component {
                     // display error in case of empty list
                     this.props.users.length !== 0 &&
                     <button onClick={this.toggleShowHide}>
-                        {this.state.isShowing ? "Hide": "Show"} the Number of Games Played
+                        {isShowing ? "Hide": "Show"} the Number of Games Played
                     </button>
                 }
 
