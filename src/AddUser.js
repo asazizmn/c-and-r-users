@@ -31,7 +31,7 @@ class AddUser extends Component {
         // the following can be achieved with destructuring:
         // const key = event.target.id;
         // const value = event.target.value;
-        const {key, value} = event.target;
+        const {name, value} = event.target;
 
         // '[event.target.id]' allows for dynamic keys to be used
         // this.setState({ [event.target.id]: event.target.value });
@@ -41,7 +41,7 @@ class AddUser extends Component {
         this.setState(prevState => ({
             user: {
                 ...prevState.user,
-                [key]: value
+                [name]: value
             }
         }));
     };
@@ -98,7 +98,7 @@ class AddUser extends Component {
 
                 <form onSubmit={this.handleAddUser}>
                     <input
-                        id="firstname"
+                        name="firstname"
                         type="text"
                         placeholder="Enter First Name"
                         value={this.state.user.firstname}
@@ -106,7 +106,7 @@ class AddUser extends Component {
                     />
 
                     <input
-                        id="lastname"
+                        name="lastname"
                         type="text"
                         placeholder="Enter Last Name"
                         value={this.state.user.lastname}
@@ -114,7 +114,7 @@ class AddUser extends Component {
                     />
 
                     <input
-                        id="username"
+                        name="username"
                         type="text"
                         placeholder="Enter Username"
                         value={this.state.user.username}
