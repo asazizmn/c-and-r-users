@@ -70,14 +70,14 @@ class AddUser extends Component {
 
     handleAddUser = event => {
 
+        // to prevent browser reload/refresh when submitting
+        event.preventDefault();
+        
         // ensure username is not a duplicate
         if (!this.isUserValid()) {
             this.props.addUser(this.state.user);
             this.clearForm();
         }
-
-        // to prevent browser reload/refresh when submitting
-        event.preventDefault();
     };
 
 
